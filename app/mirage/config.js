@@ -1,9 +1,14 @@
 export default function() {
-  this.get('/budgets', function(db /*, request */) {
+  this.get('/budgets/:id', function(db, request) {
+  	let id = request.params.id;
+
     return {
-      data: db.budgets.map(attrs => (
-        { type: 'budgets', id: attrs.id, attributes: attrs }))
+      data: {
+        type: 'budgets',
+        id: id,
+        attributes: db.budgets.find(id)
       }
+    }
   });
 
   // These comments are here to help you get started. Feel free to delete them.
