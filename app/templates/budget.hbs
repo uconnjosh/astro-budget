@@ -1,9 +1,14 @@
 {{outlet}}
-<h1>Houston... we have {{financial-state remainingMonthly}} </h1>
+<h1>Houston... we {{financial-state remainingMonthly}} </h1>
 <br />
 
 <h4 class='budgetLabel'>Income: </h4> {{input value=(mut (get model 'monthlyIncome'))}} <br />
 <h4 class='budgetLabel'>Debt: </h4> {{input value=(mut (get model 'monthlyDebt'))}} <br />
 <h4 class='budgetLabel'>Savings: </h4> {{input value=(mut (get model 'monthlySaving'))}} <br />
+<h4 class='budgetLabel'>Rent: </h4> {{input value=(mut (get model 'monthlyRent'))}} <br />
+<h4 class='budgetLabel'>Bills: </h4> {{input value=(mut (get model 'monthlyBills'))}} <br />
 <br />
-<h3>Space Money: {{remainingMonthly}} </h3>
+
+
+<h3>Space Money: {{duration-splitter budget=remainingMonthly}} </h3>
+
