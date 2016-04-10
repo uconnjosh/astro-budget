@@ -1,4 +1,5 @@
 export default function() {
+  this.urlPrefix = 'http://localhost:4200';
   this.get('/budgets/:id', function(db, request) {
   	let id = request.params.id;
 
@@ -10,6 +11,11 @@ export default function() {
       }
     }
   });
+
+  this.passthrough();
+  // this.pretender.get.call(this.pretender, '/*passthrough', this.pretender.passthrough);
+  // this.pretender.post.call(this.pretender, '/*passthrough', this.pretender.passthrough);
+  // this.pretender.patch.call(this.pretender, '/*passthrough', this.pretender.passthrough);
 
   // These comments are here to help you get started. Feel free to delete them.
 

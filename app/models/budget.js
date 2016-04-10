@@ -7,5 +7,7 @@ export default Model.extend({
   monthlySaving: attr('number'),
   monthlyDebt:   attr('number'),
   monthlyRent:   attr('number'),
-  monthlyBills:  attr('number')
+  monthlyBills:  attr('number'),
+  // pouchDB:
+  rev: 			 attr('string')
 })

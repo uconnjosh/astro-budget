@@ -5,6 +5,11 @@ const {
 } = Ember
 
 export default Controller.extend({
+  actions: {
+    save: function() {
+      this.model.save()
+    }
+  },
   remainingMonthly: Ember.computed('model.monthlyIncome', 'model.monthlySaving', 'model.monthlyDebt', 'model.monthlyRent', 'model.monthlyBills', function() {
 
     let budget = this.get('model')
