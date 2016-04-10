@@ -6931,3 +6931,10 @@ a.list-group-item-danger.active:focus {
 .budgetLabel {
   display: inline-block;
 }
+
+
+@media (max-width: 725px) {
+  .large-screen-only {
+    display:none;
+  }
+}

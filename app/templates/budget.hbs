@@ -1,14 +1,34 @@
-{{outlet}}
-<h1>Houston... we {{financial-state remainingMonthly}} </h1>
-<br />
+<div class='container'>
+  <div class='row'>
+    <div class='.col-md-8'>
+      <h1 class='large-screen-only'>Houston... we {{financial-state remainingMonthly}} </h1>
+    </div>
+  </div>
+  <form>
+    <fieldset class='form-group'>
+      <label for='income'>Income</label>
+      {{input class='form-control' value=(mut (get model 'monthlyIncome'))}}
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='income'>Debt</label>
+      {{input class='form-control' value=(mut (get model 'monthlyDebt'))}}
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='income'>Saving</label>
+      {{input class='form-control' value=(mut (get model 'monthlySaving'))}}
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='income'>Rent/Mortgage</label>
+      {{input class='form-control' value=(mut (get model 'monthlyRent'))}}
+    </fieldset>
+    <fieldset class='form-group'>
+      <label for='income'>Bills</label>
+      {{input class='form-control' value=(mut (get model 'monthlyBills'))}}
+    </fieldset>
+    <br />
+  </form>
 
-<h4 class='budgetLabel'>Income: </h4> {{input value=(mut (get model 'monthlyIncome'))}} <br />
-<h4 class='budgetLabel'>Debt: </h4> {{input value=(mut (get model 'monthlyDebt'))}} <br />
-<h4 class='budgetLabel'>Savings: </h4> {{input value=(mut (get model 'monthlySaving'))}} <br />
-<h4 class='budgetLabel'>Rent: </h4> {{input value=(mut (get model 'monthlyRent'))}} <br />
-<h4 class='budgetLabel'>Bills: </h4> {{input value=(mut (get model 'monthlyBills'))}} <br />
-<br />
 
-
-<h3>Space Money: {{duration-splitter budget=remainingMonthly}} </h3>
+  <h3>Space (free to spend) money: {{duration-splitter budget=remainingMonthly}} </h3>
+</div>
 

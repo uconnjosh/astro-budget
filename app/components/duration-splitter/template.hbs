@@ -1,4 +1,5 @@
-<h4>monthly : {{budget}}</h4>
-<h4>weekly : {{weeklyBudget}}</h4>
-<h4>daily : {{dailyBudget}}</h4>
-<h4>yearly : {{yearlyBudget}}</h4>
+<h4>daily  {{format-number dailyBudget precision=2}}</h4>
+<h4>weekly {{format-number weeklyBudget precision=2}}</h4>
+<h4>monthly {{format-number budget precision=2}} </h4>
+<br />
+<h4>yearly {{format-money yearlyBudget precision=2 symbol=currency.symbol}}</h4>
