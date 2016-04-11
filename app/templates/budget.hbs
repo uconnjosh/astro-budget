@@ -5,24 +5,25 @@
     </div>
   </div>
   <form>
+    <h6 class='budgetInfo'>(all values should be monthly)</h6>
     <fieldset class='form-group'>
-      <label for='income'>Income</label>
+      <label class='incomeLabel' for='income'>Income</label>
       {{input class='form-control' value=(mut (get model 'monthlyIncome'))}}
     </fieldset>
     <fieldset class='form-group'>
-      <label for='income'>Debt</label>
+      <label class='expenseLabel' for='income'>Debt</label>
       {{input class='form-control' value=(mut (get model 'monthlyDebt'))}}
     </fieldset>
     <fieldset class='form-group'>
-      <label for='income'>Saving</label>
+      <label class='expenseLabel' for='income'>Saving/Investment Contribution</label>
       {{input class='form-control' value=(mut (get model 'monthlySaving'))}}
     </fieldset>
     <fieldset class='form-group'>
-      <label for='income'>Rent/Mortgage</label>
+      <label class='expenseLabel' for='income'>Rent/Mortgage</label>
       {{input class='form-control' value=(mut (get model 'monthlyRent'))}}
     </fieldset>
     <fieldset class='form-group'>
-      <label for='income'>Bills</label>
+      <label class='expenseLabel' for='income'>Bills</label>
       {{input class='form-control' value=(mut (get model 'monthlyBills'))}}
     </fieldset>
     <br />

@@ -6928,8 +6928,16 @@ a.list-group-item-danger.active:focus {
   color: #fff;
 }
 
-.budgetLabel {
-  display: inline-block;
+.incomeLabel {
+  color: #85bb65;
+}
+
+.expenseLabel {
+  color: #cc3333;
+}
+
+.budgetInfo {
+  color: #888888;
 }
 
 
