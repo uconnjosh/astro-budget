@@ -7,24 +7,12 @@ A [WIP] ember cli app designed to show the big picture when it comes to money.
 Enter in simple monthly budget info (income and expenses) and see your
 allowances (or free-to-spend) money broken down into how much money you
 have per day, week, month, and year. Saving the record will persist your budget
-information to the browser's datastore (via pouchDB!!).
+information to the browser's datastore (via pouchDB).
 
-
-ToDo:
-
-- [ ] As a user, I'd like the ability to add purchases, and see how my daily,
-weekly, monthly, and yearly allowance changes accordingly.
-
-- [ ] As a user, I'd like the ability to track my budget and see how my
-  daily, weekly, monthly, and yearly allowance changes daily if I *don't* spend.
-
-- [ ] As a user, I'd like the ability to take my saving/investment input and see
-the future value of my money based on different interest rate scenarios and duration of savings.
-
-- [ ] As a user, I'd like to see how my everyday purchases affect my future weath.
-  ie.. a coffee purchased today for $2.50 comes out to $305.86 in 30 years (if invested in the stock market and inflation-adjusted return is 8%)
-
-
+Once you have your budget setup, you can track your spending by creating
+a 'Month'. A month helps you keep track of your spending over a period of
+30 days. The month shows/tracks how much spending money you have on a daily,
+weekly, and monthly basis.
 
 ## Prerequisites
 
