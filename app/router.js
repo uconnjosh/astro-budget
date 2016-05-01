@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('budget');
+  this.route('home');
+  this.route('new');
+  this.route('month');
 });
 
 export default Router;

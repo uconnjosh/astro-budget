@@ -1,0 +1,48 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-5'>
+      <h1>Day {{model.currentDay}} / 30</h1>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h3>Add Expense</h3>
+      <form>
+        <fieldset class='form-group'>
+          {{input class='form-control jumbotron' value=(mut (get this 'newExpenseAmount'))}}
+        </fieldset>
+        <fieldset class='form-group'>
+          {{input class='form-control jumbotron' value=(mut (get this 'newExpenseDescrip'))}}
+        </fieldset>
+        <fieldset class='form-group'>
+          <label>Deduct from:</label>
+          {{simple-select
+            content=(expense-type)
+            optionValuePath='value'
+            optionLabelPath='display_name'
+            class='form-control jumbotron'
+            value=newExpenseKind
+            action='updateNewExpenseKind'
+          }}
+        </fieldset>
+        <button {{action 'addExpense'}} class='btn btn-success jumbotron'>Deduct from {{newExpenseKind}}</button>
+      </form>
+    </div>
+    <div class='col-md-3'>
+      {{remaining-amounts
+        budget=balance
+        displayYearly=false
+        dayDebit=model.dayDebit
+        dayCredit=model.dayCredit
+        weekDebit=model.weekDebit
+        weekCredit=model.weekCredit
+        totalDebit=model.totalDebit
+      }}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <button {{action 'destroy'}} class='btn btn-danger'>Destroy Month</button>
+    </div>
+  </div>
+</div>

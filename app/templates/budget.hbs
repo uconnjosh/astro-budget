@@ -30,7 +30,8 @@
   </form>
 
 
-  <h3>Free-to-spend money: {{duration-splitter budget=remainingMonthly}} </h3>
+  <h3>Free-to-spend money: {{duration-splitter budget=remainingMonthly displayYearly=true}} </h3>
+  {{#link-to 'home'}}<button class='btn btn-primary btn-lg'>Home</button>{{/link-to}}
   <button {{action 'save'}} class='btn btn-primary btn-lg'>Save Changes</button>
 </div>
 
