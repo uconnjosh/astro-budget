@@ -61,15 +61,12 @@ export default Ember.Controller.extend({
 
         month.set('weekDebit', (weekWeekDebit + newDebit))
         month.set('totalDebit', (weekMonthDebit + newDebit))
-        month.set('dayCredit', (this.get('balance') / 30 ))
         month.save()
         break;
       case 'month':
         let monthDebit = this.get('model.totalDebit')
 
         month.set('totalDebit', (monthDebit + newDebit))
-        // month.set('dayCredit', (this.get('balance') / 30 ))
-        month.set('weekCredit', (this.get('balance') / 4.33 ))
         month.save()
     }
   }

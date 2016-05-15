@@ -7,7 +7,6 @@ export function expenseType() {
 var Types = {
   all: [
     { 'display_name': 'Day', 'value': 'day' },
-    { 'display_name': 'Week', 'value': 'week' },
     { 'display_name': 'Month', 'value': 'month' },
   ]
 }

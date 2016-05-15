@@ -8,18 +8,12 @@ export default Ember.Route.extend({
   model() {
   	return this._findOrCreate()
   },
-  // move find or create logic here?
   afterModel: function(month, /*transition*/) {
     let now = Date.now()
     let oneDay = 86400000
-    let oneWeek = oneDay * 7
 
     if (now - month.get('dayBeginStamp') > oneDay) {
       month.set('dayDebit', 0)
-    }
-
-    if (now - month.get('weekBeginStamp') > oneWeek) {
-      month.set('weekDebit', 0)
     }
   },
   _findOrCreate: function() {
@@ -35,11 +29,7 @@ export default Ember.Route.extend({
             let newMonth = _this.store.createRecord('month', {
               id: 1,
               totalDebit: 0,
-              weekDebit: 0,
-              // weekCredit: returnedBudget.get('remainingMonthly') / 4.33,
-              weekBeginStamp: now,
               dayDebit: 0,
-              // dayCredit: returnedBudget.get('remainingMonthly') / 30,
               dayBeginStamp: now,
               createdAt: now,
               budget: returnedBudget
