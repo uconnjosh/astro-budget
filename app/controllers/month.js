@@ -3,9 +3,14 @@ import Ember from 'ember'
 export default Ember.Controller.extend({
   actions: {
     destroy: function() {
-      this.model.deleteRecord()
-      this.model.save()
-      this.transitionToRoute('home')
+      let doYouReally = confirm('Do you really want to reset the day of the month to 1?? (this will erase all expenses and month related data)')
+      if (doYouReally == true) {
+        this.model.deleteRecord()
+        this.model.save()
+        this.transitionToRoute('home')
+      } else {
+        return;
+      }
     },
     updateNewExpenseKind: function(expenseKind) {
       this.set('newExpenseKind', expenseKind.value)
