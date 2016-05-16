@@ -5,15 +5,23 @@ const {
 } = Ember
 
 export default Ember.Route.extend({
+  actions: {
+    updateDayAllowanceAction: function(model) {
+      this.updateDayAllowance(model)
+    }
+  },
   model() {
   	return this._findOrCreate()
   },
   afterModel: function(month, /*transition*/) {
+    let _this = this
     let now = Date.now()
     let oneDay = 86400000
 
     if (now - month.get('dayBeginStamp') > oneDay) {
       month.set('dayDebit', 0)
+      _this.updateDayAllowance(month)
+      month.set('dayBeginStamp', Date.now())
     }
   },
   _findOrCreate: function() {
@@ -30,6 +38,7 @@ export default Ember.Route.extend({
               id: 1,
               totalDebit: 0,
               dayDebit: 0,
+              dayCredit: returnedBudget.get('remainingMonthly') / 30,
               dayBeginStamp: now,
               createdAt: now,
               budget: returnedBudget
@@ -50,5 +59,12 @@ export default Ember.Route.extend({
         resolve(value)
       })
     }, 'Promise: `_month')
+  },
+  updateDayAllowance: function(model) {
+    const remainingMonthly = model.get('budget.remainingMonthly')
+    const daysRemaining = 30 - model.get('currentDay')
+    const balance = remainingMonthly - model.get('totalDebit')
+    model.set('dayCredit', balance / daysRemaining)
+    model.save()
   }
 });

@@ -4,11 +4,8 @@ export default Ember.Component.extend({
   monthlyBudget: Ember.computed('budget', 'totalDebit', function() {
     return this.get('budget')
   }),
-  dailyBudget: Ember.computed('budget', 'weeklyBudget', 'dayDebit', function() {
-    const dayDebit = this.get('dayDebit')
-    const extraDeduction = dayDebit ? dayDebit : 0
-
-    return this.get('dayCredit') - extraDeduction
+  dailyBudget: Ember.computed('dayDebit', 'dayCredit', function() {
+    return this.get('dayCredit') - this.get('dayDebit')
   }),
   yearlyBudget: Ember.computed('budget', function() {
   	return (this.get('budget') * 12 )

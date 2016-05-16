@@ -51,23 +51,16 @@ export default Ember.Controller.extend({
         let dayTotalDebit = month.get('totalDebit')
 
         month.set('dayDebit', (dayDayDebit + newDebit))
-        month.set('weekDebit', (dayWeekDebit + newDebit))
         month.set('totalDebit', (dayTotalDebit + newDebit))
-        month.save()
-        break;
-      case 'week':
-        let weekWeekDebit = this.get('model.weekDebit')
-        let weekMonthDebit = this.get('model.weekDebit')
-
-        month.set('weekDebit', (weekWeekDebit + newDebit))
-        month.set('totalDebit', (weekMonthDebit + newDebit))
         month.save()
         break;
       case 'month':
         let monthDebit = this.get('model.totalDebit')
 
         month.set('totalDebit', (monthDebit + newDebit))
-        month.save()
+        month.save().then(function() {
+          _this.send('updateDayAllowanceAction', month)
+        })
     }
   }
 })
